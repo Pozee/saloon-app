@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'saloon-app';
+  public handleBeverage(event: any): void {
+    console.log("Beverage", event);
+  }
 }
