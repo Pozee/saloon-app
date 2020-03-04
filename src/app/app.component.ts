@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'saloon-app';
-  public handleBeverage(event: any): void {
-    console.log("Beverage", event);
+  beverage: string;
+  handleBeverage(gotBeverage: string) {
+    gotBeverage = this.beverage;
+    console.log(this.beverage);
+
   }
 }
+

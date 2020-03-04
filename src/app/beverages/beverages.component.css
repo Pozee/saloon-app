@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
+
+.listContainer {
+    border: 3px solid #333;
+    width: 6em;
+    border-radius: 0.3em;
+}
+ul {
+    list-style-type: none;
+    padding:0;
+    text-align: center;
+    margin: 0;
+}
+li {
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-bottom: 3px solid #333;
+}
+li:last-child {
+    border: none;
+}
+li:hover {
+    background-color: #333;
+    color: white;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9em;
+    margin-bottom: 0.1em;
+}

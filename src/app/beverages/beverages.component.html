@@ -1,4 +1,8 @@
 <p>Select beverage:</p>
-<select [(ngModel)]="selectedValue" class="form-control">
-    <option *ngFor="let beverageList of beverageList" [value]="beverageList.value">{{beverageList.value}}</option>
-</select>
+<div class="listContainer">
+    <ul>
+        <li *ngFor="let beverageList of beverageList" (click)="choosenBeverage(beverageList)">
+            {{beverageList.value}}
+        </li>
+    </ul>
+</div>

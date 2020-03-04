@@ -8,23 +8,31 @@ import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
 export class BeveragesComponent implements OnInit {
   beverageList: object[] = [
     {
-      value: "---------"
-    },
-    {
+      Id: "1",
       value: "Whiskey"
     },
     {
+      Id: "2",
       value: "Beer"
     },
     {
+      Id: "3",
       value: "Milk"
     },
     {
+      Id: "4",
       value: "Water"
     }
   ];
+  @Output() sendBeverage: EventEmitter<any> = new EventEmitter<any>();
+  selectedBeverage: string = "";
+  choosenBeverage(beverageList): void {
+    this.selectedBeverage = beverageList.value;
+    localStorage.setItem("Drink", this.selectedBeverage);
+    this.sendBeverage.emit(this.selectedBeverage)
+  }
 
-  @Output() selectedBeverage: EventEmitter<any> = new EventEmitter<any>();
+
 
 
   constructor() {

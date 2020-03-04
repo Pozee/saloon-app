@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, } from '@angular/core';
 
 @Component({
   selector: 'app-dialogue',
@@ -7,9 +7,29 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class DialogueComponent implements OnInit {
   firstname: string = "";
-  constructor() { }
+  inputValue: string = "";
+  gotName = false;
+  foundStorage: boolean = false;
+  addName(name: string) {
+    this.firstname = name;
+    this.gotName = true;
+    localStorage.setItem("Firstname", name);
+    this.foundName();
+  }
+
+  foundName() {
+    if (localStorage.getItem("Firstname")) {
+      this.foundStorage = true;
+    }
+  }
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
+
   }
+
 
 }
