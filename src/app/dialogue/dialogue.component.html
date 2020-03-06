@@ -1,11 +1,13 @@
 <h3>Howdy, stranger. Haven't seen your face around here before. What's your name?</h3>
-<div *ngIf="!gotName">
+<div>
     <input [(ngModel)]="inputValue" type="text" placeholder="Firstname"><button (click)="addName(inputValue)">Add
         name</button>
+        <button [(ngModel)]="inputValue" (click)="addName(inputValue)">Change name</button>
 </div>
 
 <p *ngIf="gotName">Alright Mr. {{firstname}}, what can I do you for?</p>
 
-<app-beverages *ngIf="foundStorage"></app-beverages>
+<app-beverages (sendBeverage)="handleBeverage($event)" *ngIf="foundStorage"></app-beverages>
 
-<!-- <p>One {{beverage}},coming right up!</p> -->
+ <p>One {{beverage}},coming right up!</p>
+

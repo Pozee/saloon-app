@@ -4,3 +4,6 @@ p {
 input:first-of-type {
     margin-right: 0.7em;
 }
+button:last-child {
+    margin-left: 0.7em;
+}
