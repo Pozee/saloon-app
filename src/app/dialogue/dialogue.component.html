@@ -2,12 +2,11 @@
 <div>
     <input [(ngModel)]="inputValue" type="text" placeholder="Firstname"><button (click)="addName(inputValue)">Add
         name</button>
-        <button [(ngModel)]="inputValue" (click)="addName(inputValue)">Change name</button>
+    <button ngDefaultControl [(ngModel)]="inputValue" (click)="addName(inputValue)">Change name</button>
 </div>
 
 <p *ngIf="gotName">Alright Mr. {{firstname}}, what can I do you for?</p>
 
-<app-beverages (sendBeverage)="handleBeverage($event)" *ngIf="foundStorage"></app-beverages>
+<app-beverages (sendBeverage)="handleBeverage($event)" *ngIf="gotName"></app-beverages>
 
- <p>One {{beverage}},coming right up!</p>
-
+<p *ngIf=" gotBeverage">One {{beverage}}, coming right up!</p>

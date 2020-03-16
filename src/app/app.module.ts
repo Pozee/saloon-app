@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DialogueComponent } from './dialogue/dialogue.component';
 import { BeveragesComponent } from './beverages/beverages.component';
 import { TheUsualComponent } from './the-usual/the-usual.component';
+import { userInformationService } from './user-information.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { TheUsualComponent } from './the-usual/the-usual.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    userInformationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, } from '@angular/core';
+import { userInformationService } from '../user-information.service';
 
 @Component({
   selector: 'app-beverages',
@@ -25,18 +26,18 @@ export class BeveragesComponent implements OnInit {
     }
   ];
   @Output() sendBeverage: EventEmitter<any> = new EventEmitter<any>();
-  
+
   selectedBeverage: string = "";
   choosenBeverage(beverageList): void {
     this.selectedBeverage = beverageList.value;
-    localStorage.setItem("Drink", this.selectedBeverage);
     this.sendBeverage.emit(this.selectedBeverage)
+    this.userInfo.saveBeverage(beverageList.value);
   }
 
 
 
 
-  constructor() {
+  constructor(private userInfo: userInformationService) {
 
   }
   ngOnInit(): void {

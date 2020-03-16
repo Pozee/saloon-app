@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, } from '@angular/core';
+import { userInformationService } from '../user-information.service';
 
 @Component({
   selector: 'app-dialogue',
@@ -6,36 +7,29 @@ import { Component, OnInit, Output, EventEmitter, Input, } from '@angular/core';
   styleUrls: ['./dialogue.component.css']
 })
 export class DialogueComponent implements OnInit {
+
   firstname: string = "";
   inputValue: string = "";
-gotName:boolean = false;
+  gotName: boolean = false;
   foundStorage: boolean = false;
   addName(name: string) {
     this.firstname = name;
     this.gotName = true;
-    localStorage.setItem("Firstname", name);
-    this.foundName();
+    this.userInfo.saveName(name);
   }
-  beverage:string;
+  gotBeverage: boolean = false;
+  beverage: string;
   handleBeverage(gotBeverage: string) {
     this.beverage = gotBeverage;
-    console.log("Från child" + this.beverage);
+    this.gotBeverage = true;
+  }
+
+  constructor(private userInfo: userInformationService) {
 
   }
 
-  foundName() {
-    if (localStorage.getItem("Firstname")) {
-      this.foundStorage = true;
-    }
-  }
 
-  constructor() {
-
-  }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
 
 }
