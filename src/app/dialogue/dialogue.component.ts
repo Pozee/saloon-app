@@ -28,15 +28,6 @@ export class DialogueComponent implements OnInit {
   }
 
   storedBeverage: string;
-
-  beverageInStorage() {
-    if (localStorage.getItem("Beverage") === null) {
-      return false
-    } else
-      this.storedBeverage = localStorage.getItem("Beverage");
-    return true;
-  }
-
   gotStoredBeverage(storedBeverage: string) {
     this.beverage = storedBeverage;
     this.gotBeverage = true;
@@ -45,13 +36,21 @@ export class DialogueComponent implements OnInit {
 
   }
   noStoredName: boolean = false;
+  noStoredBeverage: boolean = false;
 
   ngOnInit() {
     if (localStorage.getItem("Name") !== null) {
       this.firstname = localStorage.getItem("Name");
       this.gotName = true;
-    } else
+    } else {
       this.noStoredName = true;
+    };
+
+    if (localStorage.getItem("Beverage") !== null) {
+      this.storedBeverage = localStorage.getItem("Beverage");
+      this.noStoredBeverage = true;
+    } else
+      this.noStoredBeverage = false;
   }
 
 
