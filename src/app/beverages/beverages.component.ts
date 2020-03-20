@@ -25,7 +25,7 @@ export class BeveragesComponent implements OnInit {
       value: "Water"
     }
   ];
-  @Output() sendBeverage: EventEmitter<any> = new EventEmitter<any>();
+  @Output() sendBeverage: EventEmitter<string> = new EventEmitter<string>();
 
   selectedBeverage: string = "";
   choosenBeverage(beverageList): void {

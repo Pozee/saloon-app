@@ -1,12 +1,16 @@
-<h3>Howdy, stranger. Haven't seen your face around here before. What's your name?</h3>
+<h3 *ngIf="noStoredName">Howdy, stranger. Haven't seen your face around here before. What's your name?</h3>
 <div>
-    <input [(ngModel)]="inputValue" type="text" placeholder="Firstname"><button (click)="addName(inputValue)">Add
-        name</button>
-    <button ngDefaultControl [(ngModel)]="inputValue" (click)="addName(inputValue)">Change name</button>
+    <input [(ngModel)]="inputValue" type="text" placeholder="Enter name">
+    <button *ngIf="noStoredName" (click)="addName(inputValue)">Add name</button>
+    <button [(ngModel)]="inputValue" (click)="addName(inputValue)">Change name</button>
 </div>
 
 <p *ngIf="gotName">Alright Mr. {{firstname}}, what can I do you for?</p>
 
 <app-beverages (sendBeverage)="handleBeverage($event)" *ngIf="gotName"></app-beverages>
 
-<p *ngIf=" gotBeverage">One {{beverage}}, coming right up!</p>
+<p *ngIf="gotBeverage">One {{beverage}}, coming right up!</p>
+
+<app-the-usual *ngIf="beverageInStorage()" [beverageValue]="storedBeverage"
+    (sendStoredBeverage)="gotStoredBeverage($event)">
+</app-the-usual>
